@@ -1,0 +1,8 @@
+...
+spec:
+type: {{ .Values.service.type }}
+ports:
+- nodePort: {{ .Values.service.exposePort }}
+port: {{ .Values.service.internalPort }}
+targetPort: {{ .Values.service.targetPort }}
+...
