@@ -1,0 +1,25 @@
+# common values at global level. 
+namespace: hello
+
+# micro-service specific values inside each service subsection.
+hello:
+  image: 
+    name: nodejs/helloworld
+    tag: '1.0'
+    pullpolicy: IfNotPresent
+  container:
+    port: 8080
+    protocol: TCP
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  replicas: 3
+  service: 
+type: NodePort
+exposePort: 30000 // expose to node 
+targetPort: 8080 // App server listening on this port
+internalPort: 3000 // Internal exposed within the pod
